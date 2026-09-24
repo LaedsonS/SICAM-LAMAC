@@ -2,4 +2,4 @@ from django.apps import AppConfig
 
 
 class MaquinaConfig(AppConfig):
-    name = 'maquina'
+    name = 'maquinas'

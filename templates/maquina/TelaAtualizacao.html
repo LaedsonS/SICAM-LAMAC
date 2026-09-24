@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+    {% block content %}
+    <main class="container-sm" id="AdicaoMaquina">
+        <h2>Atualização da Máquina</h2>
+        <hr>
+        <div class="input-group input-group-lg mb-3" id="input">
+            <span class="input-group-text" id="inputGroup-sizing-sm">proprietário</span>
+            <input type="text" class="form-control is-invalid" id="floatingInputGroup2" placeholder="Informe o nome do proprietário da máquina" required>
+        </div>
+
+        <div class="input-group input-group-lg mb-3" id="input">
+            <span class="input-group-text" id="inputGroup-sizing-sm">Modelo  da máquina</span>
+            <input type="text" class="form-control is-invalid" id="floatingInputGroup2" placeholder="Informe o modelo da máquina" required>
+        </div>
+
+        <div class="input-group input-group-lg mb-3" id="input">
+            <span class="input-group-text" id="inputGroup-sizing-sm">Modelo do Processador</span>
+            <input type="text" class="form-control is-invalid" id="floatingInputGroup2" placeholder="Informe o modelo do processador" required>
+        </div>
+
+        <div class="input-group input-group-lg mb-3" id="input">
+            <span class="input-group-text" id="inputGroup-sizing-sm">Problema</span>
+            <input type="text" class="form-control is-invalid" id="floatingInputGroup2" placeholder="Informe o problema" required>
+        </div>
+        <hr>
+        <div class="d-grid gap-2 col-6 mx-auto">
+            <button class="btn btn-lg" type="submit" onclick="cadastrarMaquina()">Atualizar máquina</button>
+            <button class="btn btn-sm" type="submit" onclick="mudarParaInicial()">Cancelar atulização da máquina</button>
+        </div>
+        
+    </main>
+    {% endblock %}
