@@ -28,22 +28,8 @@
             <input type="email" class="form-control is-invalid" id="floatingInputGroup2" placeholder="Informe seu email para contato" required>
         </div>
 
-        <button class="btn btn-lg" type="submit" onclick="cadastrarUsuario()">Cadastrar-se</button>
-        <button class="btn btn-sm" type="submit" onclick="mudarParaLogin()">Cancelar cadastro</button>
+        <a href="{% url 'inicio'%}">Cadastrar-se</a>
+        <a href="{% url 'login_usuario'%}">Cancelar cadastro</a>
     </main>
-
-    <script>
-        function cadastrarUsuario() {
-            // try {
-                
-            // } catch (error) {
-            //     alert("Houve um erro ao fazer o cadastro.") 
-            // }
-            // window.location.href = "TelaLogin.html"
-        }
-        function mudarParaLogin() {
-            window.location.href = "TelaLogin.html"
-        }
-    </script>
 </body>
 </html>

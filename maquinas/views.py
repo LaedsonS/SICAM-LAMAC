@@ -9,3 +9,6 @@ def editarMaquina(request):
 
 def removerMaquina(request):
     return render(request, 'maquina/TelaRemoverMaquina.html')
+
+def buscar(request):
+    return render(request, 'maquina/BuscarMaquina.html')

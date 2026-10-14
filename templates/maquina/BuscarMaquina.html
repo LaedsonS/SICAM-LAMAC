@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+    {% block content %}
+    <main class="container-sm" id="AdicaoMaquina">
+        <h2>Basca da Máquina</h2>
+        <hr>
+        <div class="input-group input-group-lg mb-3" id="input">
+            <span class="input-group-text" id="inputGroup-sizing-sm">Proprietário</span>
+            <input type="text" class="form-control is-invalid" id="floatingInputGroup2" placeholder="Informe o nome do proprietário da máquina" required>
+        </div>
+
+        <div class="input-group input-group-lg mb-3" id="input">
+            <span class="input-group-text" id="inputGroup-sizing-sm">Modelo  da máquina</span>
+            <input type="text" class="form-control is-invalid" id="floatingInputGroup2" placeholder="Informe o modelo da máquina" required>
+        </div>
+
+        <div class="input-group input-group-lg mb-3" id="input">
+            <span class="input-group-text" id="inputGroup-sizing-sm">Problema</span>
+            <input type="text" class="form-control is-invalid" id="floatingInputGroup2" placeholder="Informe o problema" required>
+        </div>
+        <!-- <div>
+            <label for="fruta">Escolha o procedimento:</label>
+            <select id="procedimento" name="procedimento">
+                <option value="maca" selected>limpeza</option>
+                <option value="banana">Formatação</option> 
+                <option value="troca_de_pecas">Troca de peças</option>
+                <option value="troca_pasta_térmica">Troca pasta térmica</option>
+            </select>
+        </div> -->
+        <hr>
+        <div class="d-grid gap-2 col-6 mx-auto">
+            <a href="{% url 'editar_maquina'%}">Buscar máquina</a>
+            <a href="{% url 'inicio'%}">Cancelar busca da máquina</a>
+        </div>
+
+    </main>
+    {% endblock %}
