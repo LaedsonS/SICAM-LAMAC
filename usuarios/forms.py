@@ -1,9 +1,9 @@
 from django import forms
 class CadastroForms(forms.Form):
-    nome = forms.CharField(label='e-mail')
-    matricula = forms.CharField(label='matricula')
-    senha = forms.CharField(label='e-mail', widget=forms.PasswordInput)
-    confirmar_senha = forms.CharField(label='e-mail', widget=forms.PasswordInput)
+    matricula = forms.CharField(label='Matricula')
+    nome = forms.EmailField(label='E-mail')
+    senha = forms.CharField(label='Senha', widget=forms.PasswordInput)
+    confirmar_senha = forms.CharField(label='Confirmar senha', widget=forms.PasswordInput)
 
     def clean(self):
         cleaned_data = super().clean()
