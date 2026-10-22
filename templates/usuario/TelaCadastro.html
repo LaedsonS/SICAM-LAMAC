@@ -17,7 +17,7 @@
     <main class="container-sm">
         {% csrf_token %}
         {{ form.as_p}}
-        <div class="input-group input-group-lg mb-3" id="input">
+        <!-- <div class="input-group input-group-lg mb-3" id="input">
             <span class="input-group-text" id="inputGroup-sizing-sm">Matrícula</span>
             <input type="text" class="form-control is-invalid" id="floatingInputGroup2" placeholder="Informe sua matrícula" required>
         </div>
@@ -32,7 +32,7 @@
         <div class="input-group input-group-lg mb-3" id="input">
             <span class="input-group-text" id="inputGroup-sizing-sm">Senha</span>
             <input type="password" class="form-control is-invalid" id="floatingInputGroup2" placeholder="Confirme sua senha" required>
-        </div>
+        </div> -->
 
         <a href="{% url 'inicio'%}">Cadastrar-se</a>
         <a href="{% url 'login_usuario'%}">Cancelar cadastro</a>

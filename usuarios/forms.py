@@ -14,4 +14,17 @@ class CadastroForms(forms.Form):
             raise forms.ValidationError('Senhas não coincidem')
         
         return cleaned_data
+
+class LoginForms(forms.Form):
+    matricula = forms.CharField(label='Matricula')
+    senha = forms.CharField(label='Senha', widget=forms.PasswordInput)
+
+    def clean(self):
+        cleaned_data = super().clean()
+        senha = cleaned_data.get('senha')
+        confirmar_senha = cleaned_data.get('senha')
+
+        if senha != confirmar_senha:
+            raise forms.ValidationError('Senhas não coincidem')
         
+        return cleaned_data

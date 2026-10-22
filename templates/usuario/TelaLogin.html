@@ -14,7 +14,9 @@
         <h2>Sistema de Cadastro para a Manutenção de Máquinas no LAMAC</h2>
     </div>
     <main class="container-sm">
-        <div class="input-group input-group-lg mb-3" id="input">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <!-- <div class="input-group input-group-lg mb-3" id="input">
             <span class="input-group-text" id="inputGroup-sizing-sm">Matrícula</span>
             <input type="text" class="form-control is-invalid" id="floatingInputGroup2" placeholder="Informe sua matrícula" required>
         </div>
@@ -22,9 +24,10 @@
         <div class="input-group input-group-lg mb-3" id="input">
             <span class="input-group-text" id="inputGroup-sizing-sm">Senha</span>
             <input type="password" class="form-control is-invalid" id="floatingInputGroup2" placeholder="Informe sua senha" required>
-        </div>
+        </div> -->
         
         <a href="{% url 'inicio'%}">Fazer login</a>
         <a href="{% url 'cadastro_usuario'%}">Cadastrar-se</a>
+    </main>
 </body>
 </html>
