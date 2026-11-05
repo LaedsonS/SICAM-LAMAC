@@ -21,5 +21,5 @@ def cadastro(request):
     return render(request, 'usuario/TelaCadastro.html', {'form':form})
 
 def inicio(request):
-    return render(request, 'usuario/TelaInicial.html')
+    return render(request, 'base.html')
      
