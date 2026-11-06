@@ -15,27 +15,57 @@
     </div>
 
     <main class="container-sm">
-        {% csrf_token %}
-        {{ form.as_p}}
-        <!-- <div class="input-group input-group-lg mb-3" id="input">
-            <span class="input-group-text" id="inputGroup-sizing-sm">Matrícula</span>
-            <input type="text" class="form-control is-invalid" id="floatingInputGroup2" placeholder="Informe sua matrícula" required>
-        </div>
-        <div class="input-group input-group-lg mb-3" id="input">
-            <span class="input-group-text" id="inputGroup-sizing-sm">Email</span>
-            <input type="email" class="form-control is-invalid" id="floatingInputGroup2" placeholder="Informe seu email para contato" required>
-        </div>
-        <div class="input-group input-group-lg mb-3" id="input">
-            <span class="input-group-text" id="inputGroup-sizing-sm">Senha</span>
-            <input type="password" class="form-control is-invalid" id="floatingInputGroup2" placeholder="Informe sua senha" required>
-        </div>
-        <div class="input-group input-group-lg mb-3" id="input">
-            <span class="input-group-text" id="inputGroup-sizing-sm">Senha</span>
-            <input type="password" class="form-control is-invalid" id="floatingInputGroup2" placeholder="Confirme sua senha" required>
-        </div> -->
+        <form method="POST" action="{% url 'cadastro_usuario'%}">
+            {% csrf_token %}
+            <div class="input-group input-group-lg mb-3" id="input">
+                <label for="{{form.nome.id_for_label}}">{{form.nome.label}}</label>
+                {{form.nome}}
+                
+                {% for error in fomr.nome.errors%}
+                <div>{{ error }}</div>
+                {% endfor %}
+            </div>
+            
+            <div class="input-group input-group-lg mb-3" id="input">
+                <label for="{{form.matricula.id_for_label}}">{{form.matricula.label}}</label>
+                {{form.nome}}
+                
+                {% for error in fomr.matricula.errors%}
+                <div>{{ error }}</div>
+                {% endfor %}
+            </div>
 
-        <a href="{% url 'inicio'%}">Cadastrar-se</a>
-        <a href="{% url 'login_usuario'%}">Já está cadastro? Faça login</a>
+            <div class="input-group input-group-lg mb-3" id="input">
+                <span class="input-group-text" id="inputGroup-sizing-sm">{{form.email.label}}</span>
+                <label for="{{form.email.id_for_label}}">{{form.email.label}}</label>
+                {{form.nome}}
+                
+                {% for error in fomr.email.errors%}
+                <div>{{ error }}</div>
+                {% endfor %}
+            </div>
+
+            <div class="input-group input-group-lg mb-3" id="input">
+                <label for="{{form.senha.id_for_label}}">{{form.senha.label}}</label>
+                {{form.nome}}
+                
+                {% for error in fomr.senha.errors%}
+                <div>{{ error }}</div>
+                {% endfor %}
+            </div>
+
+            <div class="input-group input-group-lg mb-3" id="input">
+                <label for="{{form.confirmar_senha.id_for_label}}">{{form.confirmar_senha.label}}</label>
+                {{form.nome}}
+                
+                {% for error in fomr.confirmar_senha.errors%}
+                <div>{{ error }}</div>
+                {% endfor %}
+            </div>
+
+            <a href="{% url 'inicio'%}">Cadastrar-se</a>
+            <a href="{% url 'login_usuario'%}">Já está cadastro? Faça login</a>
+        </form>
     </main>
 </body>
 </html>
