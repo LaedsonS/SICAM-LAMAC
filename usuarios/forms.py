@@ -79,7 +79,7 @@ class LoginForms(forms.Form):
             label='Confirmar senha',
             widget=forms.PasswordInput(attrs={
                 'class':'form-control',
-                'placehoudel':'Informe sua senha',
+                'placehoudel':'Confirme sua senha',
                 'autocomplete':'name',
                 'autofocus':True
             })

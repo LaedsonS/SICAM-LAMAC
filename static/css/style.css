@@ -37,6 +37,9 @@ main {
     flex-direction: column;
     gap: 7px;
 }
+label {
+    color: aliceblue;
+}
 #input {
     padding: 1px;
     background-color: #5a6b8c;

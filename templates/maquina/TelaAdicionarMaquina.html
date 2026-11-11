@@ -5,33 +5,49 @@
     <main class="container-sm" id="AdicaoMaquina">
         <h2>Adição da Máquina</h2>
         <hr>
-        {% csrf_token %}
-        {{ form.as_p}}
-        <!-- <div class="input-group input-group-lg mb-3" id="input">
-            <span class="input-group-text" id="inputGroup-sizing-sm">Proprietário</span>
-            <input type="text" class="form-control is-invalid" id="floatingInputGroup2" placeholder="Informe o nome do proprietário da máquina" required>
-        </div>
+        
+        <form  method="POST" action="{% url 'adicionar_maquina'%}">
+            {% csrf_token %}
 
-        <div class="input-group input-group-lg mb-3" id="input">
-            <span class="input-group-text" id="inputGroup-sizing-sm">Modelo da máquina</span>
-            <input type="text" class="form-control is-invalid" id="floatingInputGroup2" placeholder="Informe o modelo da máquina" required>
-        </div>
+            <div class="mb-3" id="input">
+                <label for="{{form.proprietario.id_for_label}}">{{form.proprietario.label}}</label>
+                {{form.proprietario}}
+                
+                {% for error in form.proprietario.errors%}
+                <div>{{ error }}</div>
+                {% endfor %}
+            </div>
+            <div class=" mb-3" id="input">
+                <label for="{{form.modelo_maquina.id_for_label}}">{{form.modelo_maquina.label}}</label>
+                {{form.modelo_maquina}}
+                
+                {% for error in form.modelo_maquina.errors%}
+                <div>{{ error }}</div>
+                {% endfor %}
+            </div>
+            <div class=" mb-3" id="input">
+                <label for="{{form.modelo_processador.id_for_label}}">{{form.modelo_processador.label}}</label>
+                {{form.modelo_processador}}
+                
+                {% for error in form.modelo_processador.errors%}
+                <div>{{ error }}</div>
+                {% endfor %}
+            </div>
+            <div class="mb-3" id="input">
+                <label for="{{form.problema.id_for_label}}">{{form.problema.label}}</label>
+                {{form.problema}}
+                
+                {% for error in form.problema.errors%}
+                <div>{{ error }}</div>
+                {% endfor %}
+            </div>
 
-        <div class="input-group input-group-lg mb-3" id="input">
-            <span class="input-group-text" id="inputGroup-sizing-sm">Modelo do Processador</span>
-            <input type="text" class="form-control is-invalid" id="floatingInputGroup2" placeholder="Informe o modelo do processador" required>
-        </div>
-
-        <div class="input-group input-group-lg mb-3" id="input">
-            <span class="input-group-text" id="inputGroup-sizing-sm">Problema</span>
-            <input type="text" class="form-control is-invalid" id="floatingInputGroup2" placeholder="Informe o problema" required>
-        </div> -->
-
-        <hr>
-        <div class="d-grid gap-2 col-6 mx-auto">
-            <a href="{% url 'inicio'%}">Cadastrar máquina</a>
-            <a href="{% url 'inicio'%}">Cancelar adição da máquina</a>
-        </div>
+            <hr>
+            <div class="d-grid gap-2 col-6 mx-auto">
+                <a href="{% url 'inicio'%}">Cadastrar máquina</a>
+                <a href="{% url 'inicio'%}">Cancelar adição da máquina</a>
+            </div>
+        </form>
     </main>
     
     {% endblock %}

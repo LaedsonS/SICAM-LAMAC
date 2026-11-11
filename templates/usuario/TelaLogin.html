@@ -17,7 +17,7 @@
         <form method="POST" action="{% url 'login_usuario'%}"></form>
             {% csrf_token %}
             
-            <div class="input-group input-group-lg mb-3" id="input">
+            <div class="mb-3" id="input">
                 <label for="{{ form.matricula.id_for_label}}">{{ form.matricula.label}}</label>
                 {{form.matricula}}
                 
@@ -26,7 +26,7 @@
                 {% endfor %}
             </div>
 
-            <div class="input-group input-group-lg mb-3" id="input">
+            <div class="mb-3" id="input">
                 <label for="{{ form.senha.id_for_label}}">{{form.senha.label}}</label>
                 {{ form.senha }}
 
@@ -35,7 +35,7 @@
                 {% endfor %}
             </div>
             
-            <div class="input-group input-group-lg mb-3" id="input">
+            <div class="mb-3" id="input">
                 <label for="{{ form.confirmar_senha.id_for_label}}">{{form.confirmar_senha.label}}</label>
                 {{ form.confirmar_senha }}
 
