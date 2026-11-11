@@ -14,20 +14,39 @@
         <h2>Sistema de Cadastro para a Manutenção de Máquinas no LAMAC</h2>
     </div>
     <main class="container-sm">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <!-- <div class="input-group input-group-lg mb-3" id="input">
-            <span class="input-group-text" id="inputGroup-sizing-sm">Matrícula</span>
-            <input type="text" class="form-control is-invalid" id="floatingInputGroup2" placeholder="Informe sua matrícula" required>
-        </div>
+        <form method="POST" action="{% url 'login_usuario'%}"></form>
+            {% csrf_token %}
+            
+            <div class="input-group input-group-lg mb-3" id="input">
+                <label for="{{ form.matricula.id_for_label}}">{{ form.matricula.label}}</label>
+                {{form.matricula}}
+                
+                {% for error in form.matricula.errors %}
+                <div>{{ error }}</div>
+                {% endfor %}
+            </div>
 
-        <div class="input-group input-group-lg mb-3" id="input">
-            <span class="input-group-text" id="inputGroup-sizing-sm">Senha</span>
-            <input type="password" class="form-control is-invalid" id="floatingInputGroup2" placeholder="Informe sua senha" required>
-        </div> -->
-        
-        <a href="{% url 'inicio'%}">Fazer login</a>
-        <a href="{% url 'cadastro_usuario'%}">Cadastrar-se</a>
+            <div class="input-group input-group-lg mb-3" id="input">
+                <label for="{{ form.senha.id_for_label}}">{{form.senha.label}}</label>
+                {{ form.senha }}
+
+                {% for error in form.senha.errors %}
+                <div>{{ error }}</div>
+                {% endfor %}
+            </div>
+            
+            <div class="input-group input-group-lg mb-3" id="input">
+                <label for="{{ form.confirmar_senha.id_for_label}}">{{form.confirmar_senha.label}}</label>
+                {{ form.confirmar_senha }}
+
+                {% for error in form.confirmar_senha.errors %}
+                <div>{{ error }}</div>
+                {% endfor %}
+            </div>
+
+            <a href="{% url 'inicio'%}">Fazer login</a>
+            <a href="{% url 'cadastro_usuario'%}">Cadastrar-se</a>
+        </form>
     </main>
 </body>
 </html>

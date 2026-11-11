@@ -21,7 +21,7 @@
                 <label for="{{form.nome.id_for_label}}">{{form.nome.label}}</label>
                 {{form.nome}}
                 
-                {% for error in fomr.nome.errors%}
+                {% for error in form.nome.errors%}
                 <div>{{ error }}</div>
                 {% endfor %}
             </div>
@@ -30,7 +30,7 @@
                 <label for="{{form.matricula.id_for_label}}">{{form.matricula.label}}</label>
                 {{form.nome}}
                 
-                {% for error in fomr.matricula.errors%}
+                {% for error in form.matricula.errors%}
                 <div>{{ error }}</div>
                 {% endfor %}
             </div>
@@ -40,7 +40,7 @@
                 <label for="{{form.email.id_for_label}}">{{form.email.label}}</label>
                 {{form.nome}}
                 
-                {% for error in fomr.email.errors%}
+                {% for error in form.email.errors%}
                 <div>{{ error }}</div>
                 {% endfor %}
             </div>
@@ -49,7 +49,7 @@
                 <label for="{{form.senha.id_for_label}}">{{form.senha.label}}</label>
                 {{form.nome}}
                 
-                {% for error in fomr.senha.errors%}
+                {% for error in form.senha.errors%}
                 <div>{{ error }}</div>
                 {% endfor %}
             </div>
@@ -58,7 +58,7 @@
                 <label for="{{form.confirmar_senha.id_for_label}}">{{form.confirmar_senha.label}}</label>
                 {{form.nome}}
                 
-                {% for error in fomr.confirmar_senha.errors%}
+                {% for error in form.confirmar_senha.errors%}
                 <div>{{ error }}</div>
                 {% endfor %}
             </div>
