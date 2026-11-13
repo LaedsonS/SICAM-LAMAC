@@ -75,7 +75,17 @@ No Linux ou Mac:
 
   **7.4. Criar o arquivo .env**
       
+<<<<<<< HEAD
 crie o arquivo *.env*
+=======
+Copie o arquivo modelo e renomeie para .env:
+      
+      cp .env.example .env
+      
+No Windows, se o comando cp não funcionar:
+      
+      copy .env.example .env
+>>>>>>> 3dacf3f52c709b24f6a5985c5536dabcaadc18b2
       
 Abra o **.env**, ele deve conter:
       SECRET_KEY=
