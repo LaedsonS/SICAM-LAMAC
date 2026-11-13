@@ -51,7 +51,7 @@ O projeto tem como objetivo desenvolver um software voltado ao gerenciamento e c
 
   **7.1. Clonar o repositório**
 
-    git clone h[ttps://github.com/usuario/projeto_tasks.git](https://github.com/LaedsonS/SICAM-LAMAC.git)
+    git clone https://github.com/LaedsonS/SICAM-LAMAC.git
 
   **7.2. Criar o ambiente virtual**
 
@@ -75,19 +75,11 @@ No Linux ou Mac:
 
   **7.4. Criar o arquivo .env**
       
-<<<<<<< HEAD
-crie o arquivo *.env*
-=======
-Copie o arquivo modelo e renomeie para .env:
+Crie o arquivo *.env*
+
+Copie o conteúdo do *.env.example* para o *.env*
       
-      cp .env.example .env
-      
-No Windows, se o comando cp não funcionar:
-      
-      copy .env.example .env
->>>>>>> 3dacf3f52c709b24f6a5985c5536dabcaadc18b2
-      
-Abra o **.env**, ele deve conter:
+O **.env** deve conter:
       SECRET_KEY=
       DEBUG=True 
 
