@@ -1,22 +1,21 @@
 from django import forms
 
 class CadastroSolicitacao(forms.Form):
-    proprietario = forms.CharField(
-        label='Proprietário a máquina',
+    nome_proprietario = forms.CharField(
+        label='Nome do proprietário da máquina',
         widget=forms.TextInput(attrs={
             'class':'form-control',
-            'placeholder':'Informe o proprietário da máquina',
+            'placeholder':'Informe o nome do proprietário da máquina',
             'autocomplete':'name',
             'autofocus':True
         })
     )
-    modelo_maquina = forms.CharField(
+    marca = forms.CharField(
         label='Modelo ou Marca',
         widget=forms.TextInput(attrs={
             'class':'form-control',
             'placeholder':'Informe o modelo/marca da máquina',
             'autocomplete':'name',
-            'autofocus':True
         })
     )
     problema = forms.CharField(
@@ -25,7 +24,6 @@ class CadastroSolicitacao(forms.Form):
             'class':'form-control',
             'placeholder':'Informe o problema da máquina',
             'autocomplete':'name',
-            'autofocus':True
         })
     )
 
@@ -35,39 +33,36 @@ class CadastroSolicitacao(forms.Form):
 
 class CadastroMaquinaForm(forms.Form):
     proprietario = forms.CharField(
-        label='Proprietário da máquina',
+        label='Nome do proprietário da máquina',
         widget=forms.TextInput(attrs={
             'class':'form-control',
-            'placeholder':'Informe o proprietário da máquina',
+            'placeholder':'Informe o nome do proprietário da máquina',
             'autocomplete':'name',
             'autofocus':True
         })
     )
     modelo_maquina = forms.CharField(
-        label='Modelo da máquina',
+        label='Modelo/marca da máquina',
         widget=forms.TextInput(attrs={
             'class':'form-control',
             'placeholder':'Informe o modelo/marca da máquina',
             'autocomplete':'name',
-            'autofocus':True
         })
     )
     modelo_processador = forms.CharField(
         label='Modelo do processador',
         widget=forms.TextInput(attrs={
             'class':'form-control',
-            'placeholder':'Informe o modelo/marca do processador',
+            'placeholder':'Informe o modelo do processador',
             'autocomplete':'name',
-            'autofocus':True
         })
     )
-    problema = forms.CharField(
-        label='Problema',
+    defeito = forms.CharField(
+        label='Defeito',
         widget=forms.TextInput(attrs={
             'class':'form-control',
-            'placeholder':'Informe o problema da máquina',
+            'placeholder':'Informe o defeito da máquina',
             'autocomplete':'name',
-            'autofocus':True
         })
     )
 
@@ -76,20 +71,77 @@ class CadastroMaquinaForm(forms.Form):
         return cleaned_data
 
 class AtulizacaoMaquinaForm(forms.Form):
-    proprietario = forms.CharField(label='Proprietário a máquina')
-    modelo_maquina = forms.CharField(label='Modelo da máquina')
-    modelo_processador = forms.CharField(label='Modelo do processador')
-    problema = forms.CharField(label='Problema')
+    proprietario = forms.CharField(
+        label='Proprietário a máquina',
+        widget = forms.TelInput(attrs={
+            'class':'form-control',
+            'placeholder':'Informe o nome do proprietário da máquina',
+            'autocomplete':'name',
+            'autofocus':True
+        }))
+    modelo_maquina = forms.CharField(
+        label='Modelo/marca da máquina',
+        widget=forms.TextInput(attrs={
+            'class':'form-control',
+            'placeholder':'Informe o modelo/marca da máquina',
+            'autocomplete':'name',
+        })
+    )
+    modelo_processador = forms.CharField(
+        label='Modelo do processador',
+        widget=forms.TextInput(attrs={
+            'class':'form-control',
+            'placeholder':'Informe o modelo do processador',
+            'autocomplete':'name',
+        })
+    )
+    defeito = forms.CharField(
+        label='defeito',
+        widget=forms.TextInput(attrs={
+            'class':'form-control',
+            'placeholder':'Informe o defeito da máquina',
+            'autocomplete':'name',
+        })
+    )
 
     def clean(self):
         cleaned_data = super().clean()
         return cleaned_data
 
 class RegistrarManutencao(forms.Form):
-    procedimento = forms.CharField(label='Procedimento realizado')
-    maquina = forms.CharField(label='Máquina')
-    tecnico = forms.CharField(label='Técnico')
-    data = forms.DateField(label='Data da realização da manutenção')
+    procedimento = forms.CharField(
+        label='Procedimento realizado',
+        widget = forms.TextInput(attrs={
+            'class':'form-control',
+            'placeholder':'Informe o procedimento realizado',
+            'autocomplete':'name',
+            'autofocus':True
+        })
+    )
+    maquina = forms.CharField(
+        label='Máquina',
+        widget = forms.TextInput(attrs={
+            'class':'form-control',
+            'placeholder':'Informe a máquina em que a manutenção foi feita',
+            'autocomplete':'name',
+        })
+    )
+    tecnico = forms.CharField(
+        label='Técnico',
+        widget = forms.TextInput(attrs={
+            'class':'form-control',
+            'placeholder':'Informe o técnico que fez manutenção',
+            'autocomplete':'name',
+        })
+    )
+    data = forms.DateField(
+        label='Data da realização da manutenção',
+        widget = forms.TextInput(attrs={
+            'class':'form-control',
+            'placeholder':'Informe a data em que a manutenção foi feita',
+            'autocomplete':'name',
+        })
+    )
 
     def clean(self):
         cleaned_data = super().clean()

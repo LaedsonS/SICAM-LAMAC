@@ -34,10 +34,10 @@
                 {% endfor %}
             </div>
             <div class="mb-3" id="input">
-                <label for="{{form.problema.id_for_label}}">{{form.problema.label}}</label>
-                {{form.problema}}
+                <label for="{{form.defeito.id_for_label}}">{{form.defeito.label}}</label>
+                {{form.defeito}}
                 
-                {% for error in form.problema.errors%}
+                {% for error in form.defeito.errors%}
                 <div>{{ error }}</div>
                 {% endfor %}
             </div>

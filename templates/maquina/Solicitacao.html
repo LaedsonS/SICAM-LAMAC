@@ -6,22 +6,26 @@
         <form method="POST" action="{% url 'cadastro_usuario'%}">
             {% csrf_token %}
 
+            <!-- Nome do proprietario -->
             <div class="mb-3" id="input">
-                <label for="{{ form.proprietario.id_for_label}}">{{form.proprietario.label}}</label>
-                {{form.proprietario}}
+                <label for="{{ form.nome_proprietario.id_for_label}}">{{form.nome_proprietario.label}}</label>
+                {{form.nome_proprietario}}
 
-                {% for error in form.proprietario.errors %}
+                {% for error in form.nome_proprietario.errors %}
                 <div>{{error}}</div>
                 {% endfor %}
             </div>
+            
+            <!-- Marca -->
             <div class="mb-3" id="input">
-                <label for="{{ form.modelo_maquina.id_for_label}}">{{form.modelo_maquina.label}}</label>
-                {{form.modelo_maquina}}
+                <label for="{{ form.marca.id_for_label}}">{{form.marca.label}}</label>
+                {{form.marca}}
 
-                {% for error in form.modelo_maquina.errors %}
+                {% for error in form.marca.errors %}
                 <div>{{error}}</div>
                 {% endfor %}
             </div>
+            <!-- Problema -->
             <div class="mb-3" id="input">
                 <label for="{{ form.problema.id_for_label}}">{{form.problema.label}}</label>
                 {{form.problema}}
