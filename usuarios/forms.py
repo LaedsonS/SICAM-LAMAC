@@ -1,4 +1,6 @@
 from django import forms
+from .models import Usuario
+
 class CadastroForms(forms.Form):
     nome = forms.CharField(
         label='Nome',
@@ -14,17 +16,15 @@ class CadastroForms(forms.Form):
         widget= forms.TextInput(attrs={
             'class' : 'form-control',
             'placeholder' : 'Informe sua matrícula',
-            'autocomplete' : 'name',
-            'autofocus' : True
+            'autocomplete' : 'username',
         })
     )
     email = forms.EmailField(
         label='E-mail',
-        widget = forms.TextInput(attrs={
+        widget = forms.EmailInput(attrs={
             'class' : 'form-control',
             'placeholder' : 'Informe seu email para contato',
-            'autocomplete' : 'name',
-            'autofocus' : True
+            'autocomplete' : 'email',
         })
     )
     senha = forms.CharField(
@@ -32,8 +32,7 @@ class CadastroForms(forms.Form):
         widget=forms.PasswordInput(attrs={
             'class' : 'form-control',
             'placeholder' : 'Informe sua senha',
-            'autocomplete' : 'name',
-            'autofocus' : True
+            'autocomplete' : 'new-password',
         })
     )
     confirmar_senha = forms.CharField(
@@ -41,20 +40,25 @@ class CadastroForms(forms.Form):
         widget=forms.PasswordInput(attrs={
             'class' : 'form-control',
             'placeholder' : 'Informe sua senha',
-            'autocomplete' : 'name',
-            'autofocus' : True
+            'autocomplete' : 'new-password',
         })
     )
 
     def clean(self):
         cleaned_data = super().clean()
         senha = cleaned_data.get('senha')
-        confirmar_senha = cleaned_data.get('senha')
+        confirmar_senha = cleaned_data.get('confirmar_senha')
 
         if senha != confirmar_senha:
             raise forms.ValidationError('Senhas não coincidem')
         
         return cleaned_data
+    
+    def clean_matricula(self):
+        matricula = self.cleaned_data['matricula']
+        if Usuario.objects.filter(matricula=matricula).exists():
+            raise forms.ValidationError('Essa matrícula já está cadastrada')
+        return matricula
 
 class LoginForms(forms.Form):
     matricula = forms.CharField(
@@ -62,34 +66,16 @@ class LoginForms(forms.Form):
         widget= forms.NumberInput(attrs={
             'class':'form-control',
             'placeholder':'Informe sua matrícula',
-            'autocomplete':'name',
-            'autofocus':True
+            'autocomplete':'username',
+            'autofocus':True,
+            'inputmode': 'numeric'
         })
     )
     senha = forms.CharField(
         label='Senha',
         widget=forms.PasswordInput(attrs={
             'class':'form-control',
-            'placehoudel':'Informe sua senha',
-            'autocomplete':'name',
-            'autofocus':True
+            'placeholder':'Informe sua senha',
+            'autocomplete':'current-password'
         })
     )
-    confirmar_senha = forms.CharField(
-            label='Confirmar senha',
-            widget=forms.PasswordInput(attrs={
-                'class':'form-control',
-                'placehoudel':'Confirme sua senha',
-                'autocomplete':'name',
-                'autofocus':True
-            })
-        )
-    def clean(self):
-        cleaned_data = super().clean()
-        senha = cleaned_data.get('senha')
-        confirmar_senha = cleaned_data.get('senha')
-
-        if senha != confirmar_senha:
-            raise forms.ValidationError('Senhas não coincidem')
-        
-        return cleaned_data

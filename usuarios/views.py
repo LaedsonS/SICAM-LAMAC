@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect
+from django.contrib.auth.hashers import make_password
 from .forms import CadastroForms, LoginForms
 from .models import Usuario
 
@@ -21,7 +22,7 @@ def cadastro(request):
                 nome = dados['nome'],
                 matricula = dados['matricula'],
                 email = dados['email'],
-                senha = dados['senha']
+                senha = make_password(dados['senha'])
             )
             return redirect('login_usuario')
     else:

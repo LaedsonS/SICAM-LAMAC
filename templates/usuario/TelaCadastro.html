@@ -28,7 +28,7 @@
             
             <div class="mb-3" id="input">
                 <label for="{{form.matricula.id_for_label}}">{{form.matricula.label}}</label>
-                {{form.nome}}
+                {{form.matricula}}
                 
                 {% for error in form.matricula.errors%}
                 <div>{{ error }}</div>
@@ -38,7 +38,7 @@
             <div class="mb-3" id="input">
                 <span class="input-group-text" id="inputGroup-sizing-sm">{{form.email.label}}</span>
                 <label for="{{form.email.id_for_label}}">{{form.email.label}}</label>
-                {{form.nome}}
+                {{form.email}}
                 
                 {% for error in form.email.errors%}
                 <div>{{ error }}</div>
@@ -47,7 +47,7 @@
 
             <div class="mb-3" id="input">
                 <label for="{{form.senha.id_for_label}}">{{form.senha.label}}</label>
-                {{form.nome}}
+                {{form.senha}}
                 
                 {% for error in form.senha.errors%}
                 <div>{{ error }}</div>
@@ -56,14 +56,14 @@
 
             <div class="mb-3" id="input">
                 <label for="{{form.confirmar_senha.id_for_label}}">{{form.confirmar_senha.label}}</label>
-                {{form.nome}}
+                {{form.confirmar_senha}}
                 
                 {% for error in form.confirmar_senha.errors%}
                 <div>{{ error }}</div>
                 {% endfor %}
             </div>
 
-            <a href="{% url 'inicio'%}">Cadastrar-se</a>
+            <button type="submit" class="btn btn-primary">Cadastrar-se</button>
             <a href="{% url 'login_usuario'%}">Já está cadastro? Faça login</a>
         </form>
     </main>
