@@ -1,5 +1,6 @@
 from django import forms
 from .models import Usuario
+from django.contrib.auth.hashers import check_password
 
 class CadastroForms(forms.Form):
     nome = forms.CharField(
@@ -63,7 +64,7 @@ class CadastroForms(forms.Form):
 class LoginForms(forms.Form):
     matricula = forms.CharField(
         label='Matricula',
-        widget= forms.NumberInput(attrs={
+        widget= forms.TextInput(attrs={
             'class':'form-control',
             'placeholder':'Informe sua matrícula',
             'autocomplete':'username',
@@ -79,3 +80,21 @@ class LoginForms(forms.Form):
             'autocomplete':'current-password'
         })
     )
+
+    def clean(self):
+        self.cleaned_data = super().clean()
+        self.matricula = self.cleaned_data.get('matricula')
+        self.senha = self.cleaned_data.get('senha')
+
+        if self.matricula and self.senha:
+            try:
+                usuario = Usuario.objects.get(matricula=self.matricula) 
+            except Usuario.DoesNotExist:
+                usuario = None
+
+            if usuario is None or not check_password(self.senha, usuario.senha):
+                raise forms.ValidationError('Matrícula ou senha inválidas')
+
+            self.cleaned_data['usuario'] = usuario
+
+        return self.cleaned_data

@@ -37,6 +37,10 @@ main {
     flex-direction: column;
     gap: 7px;
 }
+.erro-login {
+    min-height: 3rem;   /* altura reservada para o aviso */
+    margin-bottom: 0.5rem;
+}
 label {
     color: aliceblue;
 }

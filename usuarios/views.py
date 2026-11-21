@@ -6,11 +6,13 @@ from .models import Usuario
 # Create your views here.
 def login(request):
     if request.method == 'POST':
-        form = LoginForms()
+        form = LoginForms(request.POST)
         if form.is_valid():
-            return redirect('login_usuario')
+            request.session['usuario_id'] = form.cleaned_data['usuario']. id
+            return redirect('inicio')
     else:
         form = LoginForms()
+
     return render(request, 'usuario/TelaLogin.html', {'form':form})
 
 def cadastro(request):

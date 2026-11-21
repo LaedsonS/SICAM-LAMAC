@@ -1,4 +1,5 @@
 {% load static %}
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -14,9 +15,9 @@
         <h2>Sistema de Cadastro para a Manutenção de Máquinas no LAMAC</h2>
     </div>
     <main class="container-sm">
-        <form method="POST" action="{% url 'login_usuario'%}"></form>
+        <form method="POST" action="{% url 'login_usuario'%}">
             {% csrf_token %}
-            
+
             <!-- matricula -->
             <div class="mb-3" id="input">
                 <label for="{{ form.matricula.id_for_label}}">{{ form.matricula.label}}</label>
@@ -37,9 +38,19 @@
                 {% endfor %}
             </div>
 
-            <a href="{% url 'inicio'%}">Fazer login</a>
-            <a href="{% url 'cadastro_usuario'%}">Cadastrar-se</a>
+            <!-- Error -->
+            <div class="erro-login">
+                {% if form.non_field_errors %}
+                <div class="alert alert-danger py-2 mb-0" role="alert">
+                    {% for error in form.non_field_errors %}{{ error }}{% endfor %}
+                </div>
+                {% endif %}
+            </div>
+            
+            <button type="submit" class="btn btn-primary">Entrar</button>
+            <a href="{% url 'cadastro_usuario'%}">Não tem conta? Cadastre-se</a>
         </form>
     </main>
+    <script src="{% static 'js/tempo.js' %}"></script>
 </body>
 </html>
