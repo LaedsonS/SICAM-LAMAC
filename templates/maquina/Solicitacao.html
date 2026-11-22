@@ -3,7 +3,7 @@
     <main class="container-sm" id="AdicaoMaquina">
         <h2>Solicitação</h2>
         <hr>
-        <form method="POST" action="{% url 'cadastro_usuario'%}">
+        <form method="POST" action="{% url 'criar_solicitacao'%}">
             {% csrf_token %}
 
             <!-- Nome do proprietario -->
@@ -16,15 +16,16 @@
                 {% endfor %}
             </div>
             
-            <!-- Marca -->
-            <div class="mb-3" id="input">
-                <label for="{{ form.marca.id_for_label}}">{{form.marca.label}}</label>
-                {{form.marca}}
-
-                {% for error in form.marca.errors %}
-                <div>{{error}}</div>
+             <!-- Modelo do computador -->
+            <div class=" mb-3" id="input">
+                <label for="{{form.modelo_computador.id_for_label}}">{{form.modelo_computador.label}}</label>
+                {{form.modelo_computador}}
+                
+                {% for error in form.modelo_computador.errors%}
+                <div>{{ error }}</div>
                 {% endfor %}
             </div>
+            
             <!-- Problema -->
             <div class="mb-3" id="input">
                 <label for="{{ form.problema.id_for_label}}">{{form.problema.label}}</label>
@@ -36,7 +37,7 @@
             </div>
 
             <div class="d-grid gap-2 col-6 mx-auto">
-                <a href="{% url 'inicio'%}">Atualizar máquina</a>
+                <button type="submit">Criar solicitação de reparo</button>
                 <a href="{% url 'inicio'%}">Cancelar atulização da máquina</a>
             </div>
         </form>

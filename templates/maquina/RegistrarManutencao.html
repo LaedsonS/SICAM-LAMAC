@@ -1,37 +1,58 @@
 {% extends 'base.html' %}
 
-    {% block content %}
+{% block content %}
 
-    <main class="container-sm" id="AdicaoMaquina">
+<main class="container-sm" id="AdicaoMaquina">
+    <form method="POST" action="{% url 'registrar_manutencao' %}">
         <h2>Registrar Manutenção</h2>
         <hr>
         {% csrf_token %}
-        {{ form.as_p}}
-        <!-- <div class="input-group input-group-lg mb-3" id="input">
-            <span class="input-group-text" id="inputGroup-sizing-sm">Proprietário</span>
-            <input type="text" class="form-control is-invalid" id="floatingInputGroup2" placeholder="Informe o nome do proprietário da máquina" required>
+        
+        <!-- Maquina -->
+        <div class="mb-3" id="input">
+            <label for="{{ form.maquina.id_for_label}}">{{ form.maquina.label}}</label>
+            {{ form.maquina }}
+
+            {% for error in form.maquina.errors %}
+                <div> {{ error }}</div>
+            {% endfor %}
         </div>
 
-        <div class="input-group input-group-lg mb-3" id="input">
-            <span class="input-group-text" id="inputGroup-sizing-sm">Modelo da máquina</span>
-            <input type="text" class="form-control is-invalid" id="floatingInputGroup2" placeholder="Informe o modelo da máquina" required>
+        <!-- Técnico -->
+        <div class="mb-3" id="input">
+            <label for="{{ form.tecnico.id_for_label}}">{{ form.tecnico.label}}</label>
+            {{ form.tecnico }}
+
+            {% for error in form.tecnico.errors %}
+                <div> {{ error }}</div>
+            {% endfor %}
         </div>
 
-        <div class="input-group input-group-lg mb-3" id="input">
-            <span class="input-group-text" id="inputGroup-sizing-sm">Modelo do Processador</span>
-            <input type="text" class="form-control is-invalid" id="floatingInputGroup2" placeholder="Informe o modelo do processador" required>
+        <!-- Procedimento -->
+        <div class="mb-3" id="input">
+            <label for="{{ form.procedimento.id_for_label}}">{{ form.procedimento.label}}</label>
+            {{ form.procedimento }}
+
+            {% for error in form.procedimento.errors %}
+                <div> {{ error }}</div>
+            {% endfor %}
         </div>
 
-        <div class="input-group input-group-lg mb-3" id="input">
-            <span class="input-group-text" id="inputGroup-sizing-sm">Problema</span>
-            <input type="text" class="form-control is-invalid" id="floatingInputGroup2" placeholder="Informe o problema" required>
-        </div> -->
+        <!-- Data -->
+        <div class="mb-3" id="input">
+            <label for="{{ form.data.id_for_label}}">{{ form.data.label}}</label>
+            {{ form.data }}
 
-        <hr>
+            {% for error in form.data.errors %}
+                <div> {{ error }}</div>
+            {% endfor %}
+        </div>
+
         <div class="d-grid gap-2 col-6 mx-auto">
-            <a href="{% url 'inicio'%}">Cadastrar máquina</a>
-            <a href="{% url 'inicio'%}">Cancelar adição da máquina</a>
+            <button type="submit">Registrar manutenção da máquina</button>
+            <a href="{% url 'inicio'%}">Cancelar registrar da manutenção</a>
         </div>
-    </main>
-    
-    {% endblock %}
+    </form>
+</main>
+
+{% endblock %}

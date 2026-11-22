@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+{% block content %}
+<main class="container-sm">
+    <h2>Atualização da Máquina</h2>
+    <hr>
+    <form method="POST" action="{% url 'editar_maquina'%}">
+        {% csrf_token %}
+
+        <!-- Proprietário -->
+        <div class="mb-3" id="input">
+            <label for="{{form.proprietario.id_for_label}}">{{form.proprietario.label}}</label>
+            {{form.proprietario}}
+            
+            {% for error in form.proprietario.errors%}
+            <div>{{ error }}</div>
+            {% endfor %}
+        </div>
+
+        <!-- Modelo -->
+        <div class=" mb-3" id="input">
+            <label for="{{form.modelo_maquina.id_for_label}}">{{form.modelo_maquina.label}}</label>
+            {{form.modelo_maquina}}
+            
+            {% for error in form.modelo_maquina.errors%}
+                <div>{{ error }}</div>
+            {% endfor %}
+        </div>
+
+        <!-- Modelo do processador -->
+        <div class=" mb-3" id="input">
+            <label for="{{form.modelo_processador.id_for_label}}">{{form.modelo_processador.label}}</label>
+            {{form.modelo_processador}}
+            
+            {% for error in form.modelo_processador.errors%}
+                <div>{{ error }}</div>
+            {% endfor %}
+        </div>
+
+        <!-- Defeito -->
+        <div class="mb-3" id="input">
+            <label for="{{form.defeito.id_for_label}}">{{form.defeito.label}}</label>
+            {{form.defeito}}
+            
+            {% for error in form.defeito.errors%}
+                <div>{{ error }}</div>
+            {% endfor %}
+        </div>
+
+        <hr>
+        <div class="d-grid gap-2 col-6 mx-auto">
+            <button type="submit">Atualizar infomações da máquina</button>
+            <a href="{% url 'inicio'%}">Cancelar atualização da máquina</a>
+        </div>
+    </form>
+</main>
+{% endblock %}

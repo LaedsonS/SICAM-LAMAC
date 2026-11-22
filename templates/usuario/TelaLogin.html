@@ -37,20 +37,22 @@
                 <div>{{ error }}</div>
                 {% endfor %}
             </div>
-
-            <!-- Error -->
-            <div class="erro-login">
-                {% if form.non_field_errors %}
-                <div class="alert alert-danger py-2 mb-0" role="alert">
-                    {% for error in form.non_field_errors %}{{ error }}{% endfor %}
-                </div>
-                {% endif %}
-            </div>
             
             <button type="submit" class="btn btn-primary">Entrar</button>
             <a href="{% url 'cadastro_usuario'%}">Não tem conta? Cadastre-se</a>
         </form>
     </main>
+        
+    <!-- Error -->
+        <div class="erro-login">
+            {% if form.non_field_errors %}
+            <div class="alert alert-danger"
+                role="alert" style="z-index: 1080;">
+                {% for error in form.non_field_errors %}{{ error }}{% endfor %}
+            </div>
+            {% endif %}
+        </div>
+        
     <script src="{% static 'js/tempo.js' %}"></script>
 </body>
 </html>

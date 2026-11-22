@@ -40,6 +40,11 @@ main {
 .erro-login {
     min-height: 3rem;   /* altura reservada para o aviso */
     margin-bottom: 0.5rem;
+    position: fixed;
+    top: 10px;                 /* Cola no topo da tela */
+    left: 50%;              /* Move o início do elemento para o meio da tela */
+    transform: translateX(-50%); /* Puxa metade da largura dele para trás, centralizando */
+    z-index: 1000;          /* Garante que fique por cima de outros conteúdos */
 }
 label {
     color: aliceblue;
@@ -54,10 +59,13 @@ label {
 }
 button[type="submit"], a {
     background-color: #5a6b8c;
+    min-height: 40px;
     border-radius: 5px;
     color: #bdd9f2;
+    font-size: 20px;
     text-decoration: none;
     text-align: center;
+    align-content: center;
 } 
 button[type="submit"]:hover, a:hover {
     border-radius: 5px;
