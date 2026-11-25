@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.hashers import make_password
 from .forms import CadastroForms, LoginForms
 from .models import Usuario
+from maquinas.models import Solicitacao
 
 # Create your views here.
 def login(request):
@@ -29,8 +30,14 @@ def cadastro(request):
             return redirect('login_usuario')
     else:
         form = CadastroForms()
-    return render(request, 'usuario/TelaCadastro.html', {'form':form})
+    return render(request, 'usuario/TelaCadastro.html', {'form':form})     
 
 def inicio(request):
-    return render(request, 'base.html')
-     
+    usuario_id = request.session.get('usuario_id')
+    if not usuario_id:
+        return redirect('login_usuario')
+
+    usuario = Usuario.objects.get(id=usuario_id)
+    solicitacoes = (Solicitacao.objects.filter(usuario=usuario)).order_by('data')
+
+    return render(request, 'usuario/TelaInicial.html', {'usuario': usuario,'solicitacoes': solicitacoes,})

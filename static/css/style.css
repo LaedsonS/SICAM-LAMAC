@@ -38,14 +38,35 @@ main {
     gap: 7px;
 }
 .erro-login {
-    min-height: 3rem;   /* altura reservada para o aviso */
+    min-height: 3rem;
     margin-bottom: 0.5rem;
     position: fixed;
-    top: 10px;                 /* Cola no topo da tela */
-    left: 50%;              /* Move o início do elemento para o meio da tela */
-    transform: translateX(-50%); /* Puxa metade da largura dele para trás, centralizando */
-    z-index: 1000;          /* Garante que fique por cima de outros conteúdos */
+    top: 10px;                      /* Cola no topo da tela */
+    left: 50%;                      /* Move o início do elemento para o meio da tela */
+    transform: translateX(-50%);    /* Puxa metade da largura dele para trás, centralizando */
+    z-index: 1000;                  /* Garante que fique por cima de outros conteúdos */
 }
+.quadro_solicitacoes {
+    /* background-color: #f28d52; */
+    padding: 15px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+.card_solicitacao {
+    background-color: #bdd9f2;
+    padding: 12px;
+    border: black 2px solid;
+    border-radius: 5px;
+    width: 45%;
+    box-shadow: #141115 5px 5px;
+}
+/* .card_solicitacao > *{
+    border: #5a6b8c 1px solid;
+    border-radius: 5px;
+    min-width: 40%;
+} */
 label {
     color: aliceblue;
 }

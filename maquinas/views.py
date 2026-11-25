@@ -1,18 +1,26 @@
 from django.shortcuts import render, redirect
 from .forms import CadastroMaquinaForm, EdicaoMaquinaForm, RegistrarManutencao, CadastroSolicitacao
 from .models import Maquina, Solicitacao, Manutencao
+from usuarios.models import Usuario
 
 # Create your views here.
 def solicitacao(request):
+    usuario_id = request.session.get('usuario_id')
+    if not usuario_id:
+        return redirect('login_usuario')
+
+    usuario = Usuario.objects.get(id=usuario_id)
     if request.method == 'POST':
         form = CadastroSolicitacao(request.POST)
         if form.is_valid():
             dados = form.cleaned_data
             Solicitacao.objects.create(
-                nome_proprietario = dados['nome_proprietario'],
                 modelo_computador = dados['modelo_computador'],
-                problema = dados['problema']
+                problema = dados['problema'],
+                descricao = dados['descricao'],
+                usuario = usuario
             )
+
             return redirect('inicio')
     else:
         form = CadastroSolicitacao()

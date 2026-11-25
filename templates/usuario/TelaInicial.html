@@ -1,35 +1,22 @@
-{% load static %}
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-    <link rel="stylesheet" href="{% static 'css/style.css'%}">
-    <title>Tela login</title>
-</head>
-<body>
-     <nav class="navbar navbar-expand-sm" id="nav">
-        <div class="container-fluid flex-wrap"> 
-            <a class="navbar-brand fs-2 fw-bold" href="{% url 'inicio'%}">SICAM-LAMAC</a>
-        
-            <div id="navbarNav">
-                <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a class="nav-link active" href="{% url 'adicionar_maquina'%}">Adicionar Máquina</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link active" href="{% url 'editar_maquina'%}">Editar Máquina</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link active" href="{% url 'remover_maquina'%}">Remover Máquina</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link active" href="{% url 'login_usuario'%}">Sair</a>
-                    </li>
-                </ul>
-            </div>
+{% extends 'base.html' %}
+{% block content%}
+<main>
+    <h2 class="h3 mb-4">Olá, {{ usuario.nome }}</h1>
+    <h3 class="h5 mb-3">Suas solicitações:</h2>
+
+    <div class="quadro_solicitacoes">
+    {% for s in solicitacoes %}
+        <div class="card_solicitacao">
+            <h5>Modelo/Marca da máquina: {{ s.modelo_computador }}</h5>
+            <p>Problema: {{ s.problema }}</p>
+            <p>Descrição: {{ s.descricao }}</p>
+            <p>Data da solicitação: {{ s.data }}</p>
         </div>
-    </nav>
-</body>
-</html>
+        <hr>
+    {% empty %}
+        <p class="text-muted">Você ainda não tem solicitações.</p>
+    {% endfor %}
+    </div>
+
+</main>
+{% endblock %}

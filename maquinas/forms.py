@@ -1,15 +1,6 @@
 from django import forms
 
 class CadastroSolicitacao(forms.Form):
-    nome_proprietario = forms.CharField(
-        label='Nome do proprietário da máquina',
-        widget=forms.TextInput(attrs={
-            'class':'form-control',
-            'placeholder':'Informe o nome do proprietário da máquina',
-            'autocomplete':'name',
-            'autofocus':True
-        })
-    )
     modelo_computador = forms.CharField(
         label='Modelo ou Marca',
         widget=forms.TextInput(attrs={
@@ -26,6 +17,14 @@ class CadastroSolicitacao(forms.Form):
             'autocomplete':'name',
         })
     )
+    descricao = forms.CharField(
+            label='Descricao',
+            widget=forms.Textarea(attrs={
+                'class':'form-control',
+                'placeholder':'Informe o problema da máquina',
+                'autocomplete':'name',
+            })
+        )
 
     def clean(self):
         cleaned_data = super().clean()

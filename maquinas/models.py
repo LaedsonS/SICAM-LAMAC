@@ -1,10 +1,13 @@
 from django.db import models
+from usuarios.models import Usuario
 
 # Create your models here.
 class Solicitacao(models.Model):
-    nome_proprietario = models.CharField(max_length=100)
+    usuario = models.ForeignKey(Usuario, on_delete=models.CASCADE)
     modelo_computador = models.CharField(max_length=20)
     problema = models.CharField()
+    descricao = models.TextField(null=True, blank=True)
+    data = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
         return self.modelo_computador
