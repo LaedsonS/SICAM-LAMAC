@@ -1,23 +1,22 @@
-/* #5a6b8c */
-/* #071526 */
-/* #bdd9f2 */
-/* #f28d52 */
-/* #f2f2f2 */
+/* #bbdde3 */
+/* #dce8e5 */
+/* #f5f1e8 */
+/* #657789 */
+/* #18263a */
 
 body{
-    background-color: #bdd9f2;
+    background-color: #18263a;
 }   
 #nav {
-    background-color: #071526;
+    background-color: #f5f1e8;
 }
 #titulo {
-    margin: 4px;
-    background-color: #071526;
-    border: 5px solid #5a6b8c;
+    margin: 7px;
+    border: 2px solid #5a6b8c;
     border-radius: 5px;
 }
 h1, h2 {
-    color: #f28d52;
+    color: #18263a;
     border-radius: 5px;
     margin: 10px 3px;
     padding: 10px 20px;
@@ -27,7 +26,7 @@ h1, h2 {
 }
 
 main {
-    background-color: #f2f4f3;
+    background-color: #f5f1e8;
     margin-top: 20px;
     padding: 5px;
     width: 90%;
@@ -36,6 +35,7 @@ main {
     display: flex;
     flex-direction: column;
     gap: 7px;
+    box-shadow: 3px 3px 8px #ffffff;
 }
 .erro-login {
     min-height: 3rem;
@@ -55,12 +55,12 @@ main {
     flex-wrap: wrap;
 }
 .card_solicitacao {
-    background-color: #bdd9f2;
+    background-color: #dce8e5;
     padding: 12px;
     border: black 2px solid;
     border-radius: 5px;
     width: 45%;
-    box-shadow: #141115 5px 5px;
+    box-shadow: 3px 3px 12px #141115;
 }
 /* .card_solicitacao > *{
     border: #5a6b8c 1px solid;
@@ -68,41 +68,55 @@ main {
     min-width: 40%;
 } */
 label {
-    color: aliceblue;
+    color: #18263a;
+    font-weight: 600;
+    padding-left: 10px;
 }
 #input {
     padding: 1px;
-    background-color: #5a6b8c;
-    border: 2px solid #141115;
+    background-color: #dce8e5;
+    border: 1px solid #141115;
     border-radius: 5px;
     display: flex;
     flex-direction: column; 
 }
 button[type="submit"], a {
-    background-color: #5a6b8c;
-    min-height: 40px;
+    background-color: #18263a;
+    height: 40px;
     border-radius: 5px;
     color: #bdd9f2;
     font-size: 20px;
     text-decoration: none;
     text-align: center;
     align-content: center;
+    /* height: 300px; */
 } 
-button[type="submit"]:hover, a:hover {
+button[type="submit"]:hover, a:hover, #nav .nav-link:hover, #nav .navbar-brand:hover  {
     border-radius: 5px;
-    border: 2px solid #534d55;
-    background-color: #f28d52;
+    color: #18263a;
+    /* border: 2px solid #18263a; */
+    background-color: #bbdde3;
 }
 hr {
     border: none;
     border-top: 2px dashed #999;
     margin: 0px 0px;
 }
-#nav .nav-link, #nav .navbar-brand {
-    color: #f2f2f2;
+#navbar {
+    display: flex;
+    gap: 50px;
+    padding: 5px;
+    margin: 5px;
+    
+}
+#nav .nav-link, #nav .navbar-brand { /* Botões no Nav*/
+    color: #f5f1e8;
+    background-color: #18263a;
 }
 #nav .navbar-brand {
     font-style: italic;
+    padding: 10px;
+    height: 80px;
 }
 #nav .nav-link {
     margin: 7px

@@ -15,6 +15,7 @@
     </div>
 
     <main class="container-sm">
+        <h2>Cadastro do usuário</h2>
         <form method="POST" action="{% url 'cadastro_usuario'%}">
             {% csrf_token %}
             <div class="mb-3" id="input">
@@ -36,7 +37,6 @@
             </div>
 
             <div class="mb-3" id="input">
-                <span class="input-group-text" id="inputGroup-sizing-sm">{{form.email.label}}</span>
                 <label for="{{form.email.id_for_label}}">{{form.email.label}}</label>
                 {{form.email}}
                 
